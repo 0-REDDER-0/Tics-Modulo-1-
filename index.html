@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolución de las Aplicaciones Móviles</title>
+    <style>
+        :root {
+            --primary-color: #1a2b4c; /* Azul oscuro estilo ITSE */
+            --accent-color: #fca311;  /* Amarillo/Naranja de acento */
+            --bg-color: #f4f6f9;
+            --text-color: #333;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        header h2 {
+            font-weight: 300;
+            color: var(--accent-color);
+            margin-top: 10px;
+        }
+
+        .general-impact {
+            max-width: 900px;
+            margin: -30px auto 40px auto;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .impact-section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .impact-section h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .impact-section p {
+            line-height: 1.6;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Timeline Container */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* The vertical line */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #ddd;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+
+        /* Timeline Item */
+        .container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease-in-out;
+        }
+
+        .container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Left and Right containers */
+        .left { left: 0; }
+        .right { left: 50%; }
+
+        /* The circles on the timeline */
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--card-bg);
+            border: 4px solid var(--accent-color);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+            transition: background-color 0.3s;
+        }
+
+        .right::after {
+            left: -14px;
+        }
+
+        .container:hover::after {
+            background-color: var(--accent-color);
+        }
+
+        /* Content Card */
+        .content {
+            padding: 20px;
+            background-color: var(--card-bg);
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .content:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .year {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 0 0 5px 0;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin: 0 0 15px 0;
+        }
+
+        .description {
+            line-height: 1.5;
+            color: #666;
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .timeline::after { left: 31px; }
+            .container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .container.left, .container.right { left: 0; }
+            .container.left::after, .container.right::after { left: 21px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>EVOLUCIÓN DE LAS APLICACIONES MÓVILES</h1>
+        <h2>Impacto General</h2>
+    </header>
+
+    <div class="general-impact">
+        <div class="impact-section">
+            <h3>Como Sociedad</h3>
+            <p>Cada hito refleja cómo las apps pasaron de ser utilidades básicas a convertirse en pilares de comunicación, economía y entretenimiento.</p>
+        </div>
+        <div class="impact-section">
+            <h3>Impacto en Software y Herramientas</h3>
+            <p><strong>Software:</strong> La evolución impulsó nuevas metodologías: del modelo en cascada (años 90) a Agile, DevOps, y frameworks cross-platform como Flutter o React Native.</p>
+            <p><strong>Herramientas:</strong> Lenguajes como Java, Objective-C, Kotlin, Python y plataformas como IOS SDK, Android SDK, Unity, TensorFlow marcaron cada etapa.</p>
+        </div>
+    </div>
+
+    <div class="timeline">
+        <div class="container left">
+            <div class="content">
+                <p class="year">1994</p>
+                <p class="title">IBM Simon</p>
+                <p class="description">Primer smartphone con apps básicas (calculadora, correo).</p>
+            </div>
+        </div>
+
+        <div class="container right">
+            <div class="content">
+                <p class="year">1997</p>
+                <p class="title">Nokia Snake</p>
+                <p class="description">Primer juego movil masivo preinstalado. Demostro el potencial del entretenimiento en celulares.</p>
+            </div>
+        </div>
+
+        <div class="container left">
+            <div class="content">
+                <p class="year">2002</p>
+                <p class="title">BlackBerry</p>
+                <p class="description">BlackBerry OS y Java. Correo movil empresarial y mensajeria en tiempo real.</p>
+            </div>
+        </div>
+
+        <div class="container right">
+            <div class="content">
+                <p class="year">2007</p>
+                <p class="title">iPhone</p>
+                <p class="description">Objective-C y Cocoa Touch. Revoluciono la interfaz tactil y el ecosistema de apps.</p>
+            </div>
+        </div>
+
+        <div class="container left">
+            <div class="content">
+                <p class="year">2008</p>
+                <p class="title">App Store y Google Play</p>
+                <p class="description">Nacen las tiendas de aplicaciones. Democratizacion del desarrollo y distribucion movil.</p>
+            </div>
+        </div>
+
+        <div class="container right">
+            <div class="content">
+                <p class="year">2010</p>
+                <p class="title">WhatsApp y Facebook</p>
+                <p class="description">Redes sociales y mensajeria movil masiva. Comunicacion global instantanea.</p>
+            </div>
+        </div>
+
+        <div class="container left">
+            <div class="content">
+                <p class="year">2014</p>
+                <p class="title">Uber y Airbnb</p>
+                <p class="description">Apps bajo demanda. Economia colaborativa y servicios on-demand transforman industrias.</p>
+            </div>
+        </div>
+
+        <div class="container right">
+            <div class="content">
+                <p class="year">2016</p>
+                <p class="title">Pokemon GO</p>
+                <p class="description">Realidad aumentada masiva. Fusion del mundo fisico y digital en dispositivos moviles.</p>
+            </div>
+        </div>
+
+        <div class="container left">
+            <div class="content">
+                <p class="year">2020</p>
+                <p class="title">Zoom y Teams</p>
+                <p class="description">Videollamadas y trabajo remoto. La pandemia acelero la adopcion de apps colaborativas.</p>
+            </div>
+        </div>
+
+        <div class="container right">
+            <div class="content">
+                <p class="year">2023</p>
+                <p class="title">ChatGPT y Google Bard</p>
+                <p class="description">Inteligencia artificial generativa en apps. Nueva era de asistentes y productividad movil.</p>
+            </div>
+        </div>
+
+        <div class="container left">
+            <div class="content">
+                <p class="year">2026</p>
+                <p class="title">SuperApps e IA Nativa</p>
+                <p class="description">Consolidacion de las SuperApps como ecosistemas integrales y madurez de los sistemas operativos impulsados nativamente por inteligencia artificial.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const timelineItems = document.querySelectorAll('.container');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2 // El elemento se mostrará cuando el 20% sea visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target); // Deja de observar una vez que ya apareció
+                }
+            });
+        }, observerOptions);
+
+        timelineItems.forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
